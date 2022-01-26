@@ -57,7 +57,7 @@ class SOM:
         :param num_epochs: number of epochs (default: 100)
         :param init_learning_rate: initial learning rate (default: 0.01)
         :return:
-        """
+        """    
         if resetWeights:
             self.initialize()
         num_rows = data.shape[0]
@@ -78,7 +78,7 @@ class SOM:
             vis_interval = int(num_epochs/10)
             if i % vis_interval == 0:
                 if fig is not None:
-                    self.show_plot(fig, i/vis_interval, i)
+                    self.show_plot(fig, int(i/vis_interval), i)
                 print("SOM training epoches %d" % i)
                 print("neighborhood radius ", radius)
                 print("learning rate ", learning_rate)
@@ -148,6 +148,7 @@ class SOM:
 
     def show_plot(self, fig, position, epoch):
         # setup axes
+        print(f"Position : {position}")
         ax = fig.add_subplot(2, 5, position, aspect="equal")
         ax.set_xlim((0, self.net.shape[0] + 1))
         ax.set_ylim((0, self.net.shape[1] + 1))

@@ -1,1 +1,7 @@
 .ipynb_checkpoints/Notebook-checkpoint.ipynb
+.ipynb_checkpoints/Answers-checkpoint.ipynb
+notebooks/.ipynb_checkpoints/
+notebooks/__pycache__/evaluation_metrics.cpython-38.pyc
+notebooks/__pycache__/evaluation_metrics.cpython-39.pyc
+notebooks/__pycache__/our_som1.cpython-38.pyc
+notebooks/__pycache__/our_som1.cpython-39.pyc
