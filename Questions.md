@@ -4,7 +4,7 @@ Q2: Write the version SOM1A, where you change the curve of the learning factor. 
 
 Q3: Write the version SOM1B, where you change the curve of the deviation. Did you achieve improvements?
 
-Q4: Write the version SOM1C, where you change the change the normal distribution to other distribution of your choice. Did you achieve improvements?
+Q4: Write the version SOM1C, where you change the normal distribution to other distribution of your choice. Did you achieve improvements?
 
 Q5*: Determine the mathematical conditions that ensure the convergence of equation (3) in page 14 of this slides.
 

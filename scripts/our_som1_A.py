@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib import patches as patches
-
+import math
 __author__ = 'Shishir Adhikari'
 import numpy as np
 
@@ -144,11 +144,11 @@ class SOM:
         return self.init_radius * np.exp(-iteration / self.time_constant)
 
     def decay_learning_rate(self, initial_learning_rate, iteration, num_iterations):
-        return initial_learning_rate * np.exp(-iteration / num_iterations)
+        #return initial_learning_rate * math.pow(200, (-iteration / num_iterations))
+        return initial_learning_rate * (1 / iteration)
 
     def show_plot(self, fig, position, epoch):
         # setup axes
-        print(f"Position : {position}")
         ax = fig.add_subplot(2, 5, position, aspect="equal")
         ax.set_xlim((0, self.net.shape[0] + 1))
         ax.set_ylim((0, self.net.shape[1] + 1))
