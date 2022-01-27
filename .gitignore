@@ -22,3 +22,7 @@ backups/__pycache__/our_som1.cpython-38.pyc
 backups/__pycache__/our_som1.cpython-39.pyc
 soms/__pycache__/our_som1.cpython-38.pyc
 soms/__pycache__/som_utils.cpython-38.pyc
+*/*checkpoint*
+*checkpoint*
+soms/__pycache__/our_som1_A.cpython-38.pyc
+.ipynb_checkpoints/Questions-checkpoint.md

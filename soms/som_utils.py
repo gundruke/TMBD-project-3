@@ -48,7 +48,7 @@ def predict(df, som):
 
 
 def som_train_predict(som, trunc_data, agri_data, num_epochs=200, init_learning_rate=0.01):
-    som.train(trunc_data.values,num_epochs=200,init_learning_rate=0.01)
+    som.train(trunc_data.values,num_epochs,init_learning_rate)
     clustered_df = trunc_data.apply(predict, args=(som, ), axis=1)
     joined_df = agri_data.join(clustered_df, rsuffix="_norm")
     
