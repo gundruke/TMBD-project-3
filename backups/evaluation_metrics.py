@@ -33,3 +33,6 @@ def neighborhood_preservation_trustworthiness(k, inpt, som):
     tr = 1.0 - 2.0 / (n * k * (2*n - 3*k - 1)) * np.sum(trs)
     
     return npr, tr
+
+
+def
