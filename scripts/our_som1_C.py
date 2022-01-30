@@ -43,7 +43,6 @@ class SOM:
         :return:
         """
         self.network_dimensions = np.array([net_x_dim, net_y_dim])
-        print(self.network_dimensions)
         self.init_radius = min(self.network_dimensions[0], self.network_dimensions[1])
         # initialize weight vectors
         self.num_features = num_features
@@ -73,7 +72,7 @@ class SOM:
         # for (epoch = 1,..., Nepochs)
         for i in range(1, num_epochs + 1):
             # interpolate new values for α(t) and σ (t)
-            
+            # this is the standard deviation
             radius = self.decay_radius(i)
             learning_rate = self.decay_learning_rate(init_learning_rate, i, num_epochs)
             # visualization
@@ -144,7 +143,6 @@ class SOM:
         return bmu, bmu_idx
 
     def decay_radius(self, iteration):
-        # this is the standard deviation
         return self.init_radius * np.exp(-iteration / self.time_constant)
 
     def decay_learning_rate(self, initial_learning_rate, iteration, num_iterations):

@@ -12,3 +12,11 @@ scripts/__pycache__/our_som1.cpython-38.pyc
 scripts/__pycache__/our_som1.cpython-39.pyc
 scripts/__pycache__/som_utils.cpython-38.pyc
 scripts/__pycache__/som_utils.cpython-39.pyc
+scripts/__pycache__/our_som1_B.cpython-38.pyc
+scripts/__pycache__/our_som1_C.cpython-38.pyc
+./*/*-checkpoint*
+scripts/.ipynb_checkpoints/our_som1_A-checkpoint.py
+scripts/.ipynb_checkpoints/our_som1_B-checkpoint.py
+scripts/.ipynb_checkpoints/our_som1-checkpoint.py
+scripts/.ipynb_checkpoints/our_som2-checkpoint.py
+scripts/.ipynb_checkpoints/som_utils-checkpoint.py
