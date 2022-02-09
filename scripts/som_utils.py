@@ -89,3 +89,7 @@ def visualize_som(som, df):
                                                markersize=10, label=label)
     plt.legend(handles=list(legend_map.values()), bbox_to_anchor=(1, 1))
     plt.show()
+    
+    
+def quantization_error_test(orig, som):
+    return (np.sum(np.abs(orig.values - som.values)))/orig.shape[0]

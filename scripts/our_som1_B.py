@@ -73,7 +73,7 @@ class SOM:
         for i in range(1, num_epochs + 1):
             # interpolate new values for α(t) and σ (t)
             # this is the standard deviation
-            radius = self.decay_radius(i, num_epochs)
+            radius = self.decay_radius(i)
             learning_rate = self.decay_learning_rate(init_learning_rate, i, num_epochs)
             # visualization
             vis_interval = int(num_epochs/10)
@@ -143,7 +143,13 @@ class SOM:
         return bmu, bmu_idx
 
     def decay_radius(self, iteration):
-        return self.init_radius * np.exp(-iteration / self.time_constant)
+        # curve of deviation
+        # Standard : https://arxiv.org/pdf/1808.08315.pdf
+        #return self.init_radius * np.exp(-iteration / self.time_constant)
+        
+        # changed
+        radius_decay = 0.1
+        return self.init_radius * np.exp(-iteration * radius_decay)   
 
     def decay_learning_rate(self, initial_learning_rate, iteration, num_iterations):
         return initial_learning_rate * np.exp(-iteration / num_iterations)
