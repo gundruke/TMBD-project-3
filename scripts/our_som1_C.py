@@ -111,7 +111,15 @@ class SOM:
     @staticmethod
     def calculate_influence(distance, radius):
         # this is the distribution
-        return np.exp(-distance / (2 * (radius ** 2)))
+        # mexican hat taken from https://github.com/JustGlowing/minisom/blob/master/minisom.py
+        #d = 2*radius*radius
+        #return (1 - (distance / d)) * (np.exp(-distance/2*d))
+        
+        # https://coursepages2.tuni.fi/tiets07/wp-content/uploads/sites/110/2019/01/Neurocomputing3.pdf
+        # Page 79
+        w = radius**2
+        return (1-(distance/w)) * (np.exp(-distance / (2 * w)))
+
 
     def find_bmu(self, row_t):
         """

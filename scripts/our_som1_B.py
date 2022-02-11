@@ -148,6 +148,7 @@ class SOM:
         #return self.init_radius * np.exp(-iteration / self.time_constant)
         
         # changed
+        # https://www.desmos.com/calculator/tlxscdzsrq
         radius_decay = 0.1
         return self.init_radius * np.exp(-iteration * radius_decay)   
 
