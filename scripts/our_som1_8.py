@@ -87,8 +87,17 @@ class SOM:
                         # if the distance is within the current neighbourhood radius
                         if w_dist <= radius ** 2:
                             # update weight vectors wk using Eq. (3)
-                            influence = SOM.calculate_influence(w_dist, radius)
-                            new_w = weight + (learning_rate * influence * (row_t - weight))
+                            influence1 = SOM.calculate_influence(w_dist, radius)
+                            # x0 = radius; y = weight; h = step = learning_rate * (row_t - weight); dydx = influence
+                            step = learning_rate * (row_t - weight)
+                            k1 = step * influence1
+
+                            influence2 = SOM.calculate_influence(w_dist + 0.5 * k1 * step, radius + 0.5 * step)            
+                            k2 = step * influence2
+                    
+                            # Update next value of y
+                            new_w = weight + k2 + (step**3)
+                            
                             self.net[x, y, :] = new_w.reshape(1, self.num_features)
         
         x = Symbol('r')

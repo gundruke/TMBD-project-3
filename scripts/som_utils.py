@@ -99,5 +99,5 @@ def quantization_error_test(orig, som):
 
 def som_abs_error(som, trunc_data, num_epochs=200, init_learning_rate=0.01):
 
-    prim_h, w = som.train(trunc_data.values,num_epochs,init_learning_rate)
-    return abs(prim_h - w)
+    prim_h, weight = som.train(trunc_data.values,num_epochs,init_learning_rate)
+    return max(abs(prim_h - weight)[0])
