@@ -5,6 +5,7 @@ __author__ = 'Shishir Adhikari'
 import numpy as np
 
 
+
 class SOM:
     """
     Python implementation of online SOM using numpy
@@ -119,6 +120,10 @@ class SOM:
                             self.net[x, y, :] = new_w.reshape(1, self.num_features)
         if fig is not None:
             plt.show()
+        
+        #x = Symbol('r')
+        #prim_h = integrate(SOM.calculate_influence(1,x), x)
+        #return N(prim_h.subs(x,radius)), new_w
 
     @staticmethod
     def calculate_influence(distance, radius):
