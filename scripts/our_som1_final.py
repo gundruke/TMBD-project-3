@@ -126,9 +126,19 @@ class SOM:
     @staticmethod
     def calculate_influence(distance, radius):
         # this is the distribution
-        w = radius**2
-        return (1-(distance/w)) * (exp(-distance / (2 * w)))
+        
+    
+        if isinstance(distance, np.ndarray):
+            e = []
+            for i, j in zip(distance[0], radius[0]):
+                w = j**2
+                e.append((1-(i/w)) * (exp(-i / (2 * w))))
+            return np.array([e])
+        else:
+            w = radius**2
+            return (1-(distance/w)) * (exp(-distance / (2 * w)))
 
+        
     def find_bmu(self, row_t):
         """
             Find the best matching unit for a given vector, row_t, in the SOM

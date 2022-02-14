@@ -92,12 +92,12 @@ class SOM:
                             step = learning_rate * (row_t - weight)
                             k1 = step * influence1
 
-                            influence2 = SOM.calculate_influence(w_dist + 0.5 * k1 * step, radius + 0.5 * step)            
+                            influence2 = SOM.calculate_influence(w_dist + 0.5 * k1 * step, radius + 0.5 * step)
                             k2 = step * influence2
                     
                             # Update next value of y
                             new_w = weight + k2 + (step**3)
-
+                            
                             self.net[x, y, :] = new_w.reshape(1, self.num_features)
         
         x = Symbol('r')
@@ -106,8 +106,13 @@ class SOM:
 
     @staticmethod
     def calculate_influence(distance, r):
-        print(N(exp(-distance / (2 * (r ** 2)))))
-        return N(exp(-distance / (2 * (r ** 2))))
+        if isinstance(distance, np.ndarray):
+            e = []
+            for i, j in zip(distance[0], r[0]):
+                e.append(exp(-i / (2 * (j ** 2))))
+            return np.array([e])
+        else:
+            return exp(-distance / (2 * (r ** 2)))
 
     def find_bmu(self, row_t):
         """
