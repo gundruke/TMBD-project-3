@@ -6,6 +6,8 @@ from matplotlib import pyplot as plt
 from matplotlib import patches as patches
 import matplotlib.lines as mlines
 
+import scipy.integrate
+
 
 def neighborhood_preservation_trustworthiness(k, inpt, som):
     # number of neighbours, k, should be < data size // 2 
@@ -93,3 +95,9 @@ def visualize_som(som, df):
     
 def quantization_error_test(orig, som):
     return (np.sum(np.abs(orig.values - som.values)))/orig.shape[0]
+
+
+def som_abs_error(som, trunc_data, num_epochs=200, init_learning_rate=0.01):
+
+    prim_h, w = som.train(trunc_data.values,num_epochs,init_learning_rate)
+    return abs(prim_h - w)
